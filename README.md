@@ -1,4 +1,4 @@
-# Ctermderella
+# Cinderella Terminal
 Bridge the terminal platform support like Cinderella!!
 
 ## Why?
@@ -17,25 +17,25 @@ Crossterm will still be used on non-Unix platforms~!!
 Additionally, Termion is in a stable release!! ^^
 
 ## Installation
-By default, Ctermderella uses Crossterm, since there isn't a great way to set default features based on the `cfg` target!!
+By default, Cinderella Terminal uses Crossterm, since there isn't a great way to set default features based on the `cfg` target!!
 
 So if you would like to use this crate fully, you will have to enable the `termion` feature on `cfg(unix)` platforms!!
 
 ```toml
 [target.'cfg(windows)'.dependencies]
-ctermderella = { git = "https://github.com/lovelyyfiaaa/ctermderella.git" }
+cinderella-terminal = { git = "https://github.com/lovelyyfiaaa/cinderella-terminal.git" }
 
 [target.'cfg(unix)'.dependencies]
-ctermderella = { git = "https://github.com/lovelyyfiaaa/ctermderella.git", default-features = false, features = ["termion"]}
+cinderella-terminal = { git = "https://github.com/lovelyyfiaaa/cinderella-terminal.git", default-features = false, features = ["termion"]}
 ...
 ```
 
 ## Usage
 
-Ctermderella uses a backend pattern~!! There are three backends to choose: crossterm, termion, and auto, the latter is just a reexport of the formers!! If you wish to implement your own backend, there's a Backend trait in [`interface.rs`](src/interface.rs).
+cinderella-terminal uses a backend pattern~!! There are three backends to choose: crossterm, termion, and auto, the latter is just a reexport of the formers!! If you wish to implement your own backend, there's a Backend trait in [`interface.rs`](src/interface.rs).
 
 ```rs
-use ctermderella::backend::auto::*;
+use cinderella_terminal::backend::auto::*;
 
 fn main(){
     let terminal = Auto::init_terminal();
