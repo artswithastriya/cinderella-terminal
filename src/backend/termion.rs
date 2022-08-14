@@ -30,7 +30,7 @@ impl Backend for Termion {
         thread::spawn(move || {
             let stdin = io::stdin();
             for key in stdin.keys().flatten() {
-                if let Err(err) = keys_tx.send(Event::Input(key.into())) {
+                if let Err(err) = keys_tx.send(Event::Keyboard(key.into())) {
                     eprintln!("{}", err);
                     return;
                 }

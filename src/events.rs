@@ -51,7 +51,8 @@ pub enum Key {
 }
 
 pub enum Event {
-    Input(Key),
+    Keyboard(Key),
+
     Tick,
 }
 
