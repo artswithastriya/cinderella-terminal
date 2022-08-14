@@ -1,5 +1,6 @@
 use std::time::Duration;
 
+#[cfg(feature = "tui")]
 use tui::Terminal;
 
 use crate::events::Event;
