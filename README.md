@@ -4,14 +4,22 @@ Bridge the terminal platform support like Cinderella!!
 ## Why?
 I wanted to use the tui crate for [Cinderella](https://github.com/lovelyyfiaaa/cinderella). Well, unfortunately, Termion doesn't work on Windows, it was made primarily for Unix-like systems. Crossterm fills in that gap, by having a Windows backend.
 
-But for me personally, Termion can be trusted more than Crossterm, since it was made by the Redux folks~!! I'm pretty sure everyone knows about Jeremy Soller, the maintainer for Termion. He's even a System76 employee, soo there are more trust to his works than say, someone that I have never met yet.
+There is a common practice to not blindly pull in dependencies, as it can be a supply chain attack vector!
+
+So I personally would prefer Termion to Crossterm, since it was made by the Redux folks~!! 
+
+I'm pretty sure everyone knows about Jeremy Soller, the maintainer for Termion. He's even a System76 employee, soo there are more trust to his works than say, someone that I have never met yet.
+
+This is nothing against Crossterm  and its developers <3
+
+Crossterm will still be used on non-Unix platforms~!!
 
 Additionally, Termion is in a stable release!! ^^
 
 ## Installa
-Crossterm, since there isn't a great way to set default features based on the target!!
+By default, Ctermderella uses Crossterm, since there isn't a great way to set default features based on the `cfg` target!!
 
-So if you would like to use this crate fully, you will have to enable the `termion` feature.
+So if you would like to use this crate fully, you will have to enable the `termion` feature on `cfg(unix)` platforms!!
 
 ```toml
 [target.'cfg(windows)'.dependencies]
